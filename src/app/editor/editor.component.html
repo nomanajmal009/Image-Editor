@@ -1,0 +1,21 @@
+<button type="button" mat-raised-button (click)="fileInput.click()">
+  Choose Image
+</button>
+<input
+  hidden
+  (change)="onFileSelected($event)"
+  #fileInput
+  type="file"
+  accept="image/*"
+/>
+
+<image-drawing
+  mat-card-image
+  [src]="fileString"
+  [outputMimeType]="'image/jpeg'"
+  [outputQuality]="0.8"
+  [enableTooltip]=true
+  (save)="save($event)"
+  (cancel)="cancel()"
+>
+</image-drawing>
